@@ -28,7 +28,7 @@ def text_to_code(message: str) -> str:
 def code_to_text(message: str) -> str:
     print(message)
     user_input = message.split()
-    output = ''  
+    output = ''  # FIX: Converted text is not word spaced
     for char in user_input:
         if char == ' ':
             output += ' '
