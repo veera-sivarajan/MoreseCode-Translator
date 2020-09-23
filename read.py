@@ -14,11 +14,16 @@ MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     '?':'..--..', '/':'-..-.', '-':'-....-',
                     '(':'-.--.', ')':'-.--.-' }
 
-def text_to_code(message: str): -> str:
-    output = ""
-    for letter in message:
-        if letter !+ ' ':
+def text_to_code(message: str) -> str:
+    output = '' 
+    for letter in message.upper():
+        #print(letter)
+        if letter != ' ':
             output += MORSE_CODE_DICT[letter] + ' '
         else:
             output += ' '
     return output
+
+if __name__ == '__main__':
+    message = input("Enter message: ")
+    print(text_to_code(message))
