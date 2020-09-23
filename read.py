@@ -16,7 +16,8 @@ MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
 
 def text_to_code(message: str) -> str:
     output = '' 
-    for letter in message.upper():
+    user_input = message.upper()
+    for letter in user_input:
         #print(letter)
         if letter != ' ':
             output += MORSE_CODE_DICT[letter] + ' '
@@ -24,6 +25,12 @@ def text_to_code(message: str) -> str:
             output += ' '
     return output
 
+def code_to_text(message: str) -> str:
+    print(message)
+    user_input = message.split()
+    for char in user_input:
+        print([letter for letter, code in MORSE_CODE_DICT.items() if code == char])
+
 if __name__ == '__main__':
     message = input("Enter message: ")
-    print(text_to_code(message))
+    code_to_text((text_to_code(message)))
