@@ -28,9 +28,16 @@ def text_to_code(message: str) -> str:
 def code_to_text(message: str) -> str:
     print(message)
     user_input = message.split()
+    output = ''  
     for char in user_input:
-        print([letter for letter, code in MORSE_CODE_DICT.items() if code == char])
+        if char == ' ':
+            output += ' '
+        else:
+            for letter, code in MORSE_CODE_DICT.items():
+                if code == char:
+                    output += letter
+    return output
 
 if __name__ == '__main__':
     message = input("Enter message: ")
-    code_to_text((text_to_code(message)))
+    print(code_to_text((text_to_code(message))))
