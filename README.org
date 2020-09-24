@@ -1,0 +1,2 @@
+* Morse Code Translator
+A simple python script to translate Morse Code to English. 
