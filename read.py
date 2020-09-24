@@ -1,4 +1,4 @@
-MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
+MORSE_CODE_DICT = { 'A':'.-', 'B':'-...', # // represents space between words
                     'C':'-.-.', 'D':'-..', 'E':'.',
                     'F':'..-.', 'G':'--.', 'H':'....',
                     'I':'..', 'J':'.---', 'K':'-.-',
@@ -12,32 +12,28 @@ MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     '7':'--...', '8':'---..', '9':'----.',
                     '0':'-----', ', ':'--..--', '.':'.-.-.-',
                     '?':'..--..', '/':'-..-.', '-':'-....-',
-                    '(':'-.--.', ')':'-.--.-' }
+                    '(':'-.--.', ')':'-.--.-', ' ':'//' }
 
 def text_to_code(message: str) -> str:
     output = '' 
     user_input = message.upper()
     for letter in user_input:
         #print(letter)
-        if letter != ' ':
-            output += MORSE_CODE_DICT[letter] + ' '
-        else:
-            output += ' '
+        output += MORSE_CODE_DICT[letter] + ' '
     return output
 
 def code_to_text(message: str) -> str:
-    print(message)
     user_input = message.split()
-    output = ''  # FIX: Converted text is not word spaced
+    output = ''  
     for char in user_input:
-        if char == ' ':
-            output += ' '
-        else:
-            for letter, code in MORSE_CODE_DICT.items():
-                if code == char:
-                    output += letter
+        for letter, code in MORSE_CODE_DICT.items():
+            if code == char:
+                output += letter
     return output
 
 if __name__ == '__main__':
     message = input("Enter message: ")
-    print(code_to_text((text_to_code(message))))
+    output = (text_to_code(message))
+    print(output)
+    code = code_to_text(output)
+    print(code)
